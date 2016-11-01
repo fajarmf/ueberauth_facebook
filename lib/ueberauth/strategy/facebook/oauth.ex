@@ -52,9 +52,10 @@ defmodule Ueberauth.Strategy.Facebook.OAuth do
   end
 
   def get_token!(params \\ [], opts \\ []) do
-    opts
+    client = opts
     |> client
-    |> OAuth2.Client.get_token!(params).token
+    |> OAuth2.Client.get_token!(params)
+    client.token
   end
 
   # Strategy Callbacks
